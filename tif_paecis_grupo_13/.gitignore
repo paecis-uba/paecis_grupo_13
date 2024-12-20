@@ -1,11 +1,11 @@
 # Python cache files
-/scripts/__pycache__/
+__pycache__/
 *.py[cod]
 
 # Virtual environment
 venv/
 .venv
-/scripts/venv
+scripts/venv/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -14,5 +14,5 @@ venv/
 *.log
 *.tmp
 
-#Automated file to create directories
+# Automated file to create directories
 /create_files.py
