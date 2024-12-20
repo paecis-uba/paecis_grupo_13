@@ -29,24 +29,24 @@ PAECIS_GRUPO_13/
 - Tener instalado Python 3.8 o superior.
 - Tener acceso a una terminal o entorno de línea de comandos.
 
-1. Clonar el repositorio
-Ejecuta los siguientes comandos para clonar el repositorio y navegar a su directorio:
+##### 1. Clonar el repositorio
+Se deben ejecutar los siguientes comandos para clonar el repositorio y navegar a su directorio:
 
 ```bash
 git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+cd <tu-repositorio>
 ```
 
-2. Uso del entorno virtual y ejecución de scripts
+##### 2. Uso del entorno virtual y ejecución de scripts
 Dependiendo del sistema operativo que se esté utilizando, se deberá usar uno de los dos archivos disponibles para configurar y ejecutar el entorno virtual:
 
-##### En sistemas Windows: `run.bat`
-Si estás utilizando Windows, puedes ejecutar el script run.bat, el cual configurará el entorno virtual, instalará las dependencias necesarias y ejecutará el script principal o abrirá Jupyter Notebook dependiendo del parámetro que pases.
+En sistemas Windows: `run.bat`
+Si se está utilizando Windows, se puede ejecutar el script `run.bat`, el cual configurará el entorno virtual, instalará las dependencias necesarias y ejecutará el script principal o abrirá Jupyter Notebook dependiendo del parámetro que pases.
 
 Pasos:
-- Abre la terminal de Windows (CMD o PowerShell).
-- Navega al directorio del proyecto.
-- Ejecuta el archivo run.bat con el siguiente comando:
+- Abrir la terminal de Windows (CMD o PowerShell).
+- Navegar al directorio del proyecto.
+- Ejecutar el archivo run.bat con el siguiente comando:
 
 ```bash
 ./run.bat
@@ -63,7 +63,8 @@ Pasos:
 ```
 Esto mostrará el uso y las opciones disponibles.
 
-3. En sistemas Linux/macOS: `run.sh`
+##### 3. En sistemas Linux/macOS: `run.sh`.
+
 Estando en Linux o macOS, se puede utilizar run.sh, el cual realiza la misma función que el archivo .bat pero para sistemas basados en Unix.
 
 Pasos:
@@ -90,7 +91,7 @@ Este comando configurará el entorno virtual, instalará las dependencias y ejec
 ```
 ----------------------------------------------------------------------------------------------------------------
 
-4. Configurar el entorno virtual e instalar dependencias usando el script de Python
+### Configurar el entorno virtual e instalar dependencias usando el script de Python
 Se debe ejecutar el siguiente comando para crear el entorno virtual e instalar las dependencias:
 
 ```bash
@@ -147,7 +148,7 @@ uploaded = files.upload()  # Se puede subir los archivos directamente desde tu c
 ----------------------------------------------------------------------------------------------------------------
 
 ### Archivos ignorados
-En el archivo .gitignore, ya está configurado para ignorar:
+En el archivo `.gitignore`, ya está configurado para ignorar:
 
 ```bash
 # Python cache files
