@@ -13,11 +13,12 @@ PAECIS_GRUPO_13/
 │   ├── processed/               # Datos procesados listos para análisis
 │   ├── raw/                     # Datos sin procesar descargados
 ├── notebooks/                   # Notebooks organizados por pasos
-├── scripts/                     # Scripts de Python (setup_env.py, main_script.py, etc.)
+├── scripts/                     # Scripts de Python (setup_env.py y main_script.py)
 ├── venv/                        # Entorno virtual (no incluido en el repositorio)
 ├── requirements.txt             # Lista de dependencias del proyecto
 ├── README.md                    # Documentación del proyecto
-└── .gitignore                   # Archivos y carpetas a ignorar
+├── .gitignore                   # Archivos y carpetas a ignorar
+└── run.sh                       # Instala las dependencias y el entorno virtual, lo activa y ejecuta el script.
 ```
 ----------------------------------------------------------------------------------------------------------------
 
@@ -60,22 +61,52 @@ venv\Scripts\activate         # En Windows
 pip install -r requirements.txt
 ```
 
-3. Ejecutar el script principal
-Una vez configurado el entorno, puedes ejecutar el script principal con:
-
+3. Ejecutar el proyecto con run.sh
+Se puede configurar el entorno y ejecutar el análisis principal utilizando el script run.sh:
 ```bash
-python scripts/main_script.py
+./run.sh
 ```
-Esto ejecutará el análisis principal del proyecto.
+
+Este script realiza las siguientes acciones:
+
+- Configura el entorno virtual e instala las dependencias si no se han instalado aún.
+- Activa el entorno virtual.
+- Ejecuta el script principal main_script.py o abre Jupyter Notebook dependiendo del parámetro que se pase (main_script.py se ejecuta por default).
+
+Si se quiere abrir Jupyter Notebook, ejecuta:
+```bash
+./run.sh notebook
+```
+Si necesitan ver la ayuda ejecuten este comando:
+```bash
+./run.sh --help
+```
 
 ----------------------------------------------------------------------------------------------------------------
 
 ### Notebooks
-Puedes explorar los análisis paso a paso en los notebooks dentro de la carpeta notebooks/. Asegúrate de activar el entorno virtual antes de abrirlos:
+Es posible explorar los análisis paso a paso en los notebooks dentro de la carpeta notebooks/. Asegurense de activar el entorno virtual antes de abrirlos utilizando el metodo anterior:
+
+```bash
+python scripts/main_script.py
+```
+o de forma manual: 
 
 ```bash
 source venv/bin/activate
 jupyter notebook
+```
+
+
+###  Ejecución en diferentes entornos
+
+#### **Google Colab**
+Si usas Google Colab, instala las dependencias manualmente y sube los datos necesarios:
+```python
+!pip install -r requirements.txt
+
+from google.colab import files
+uploaded = files.upload()  # Se puede subir los archivos directamente desde tu computadora
 ```
 ----------------------------------------------------------------------------------------------------------------
 
@@ -102,5 +133,6 @@ scripts/venv/
 /create_files.py
 ```
 
-No necesitas subir estos archivos/carpeta al repositorio.
+No es necesario subir estos archivos/carpeta al repositorio.
+
 ----------------------------------------------------------------------------------------------------------------

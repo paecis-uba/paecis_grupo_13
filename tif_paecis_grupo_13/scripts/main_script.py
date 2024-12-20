@@ -5,18 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Configuración del entorno (asegúrate de que setup_env.py esté configurado correctamente)
-def setup_environment():
-    try:
-        from setup_env import setup_environment
-        # Definir las rutas de los archivos
-        venv_dir = os.path.join('..', 'venv')  # Puedes ajustar la ruta según tus necesidades
-        requirements_path = os.path.join('..', 'requirements.txt')
-        setup_environment(venv_dir=venv_dir, requirements_path=requirements_path)
-    except ImportError as e:
-        print("Error: No se pudo importar setup_env.py. Asegúrate de que el archivo existe y está configurado correctamente.")
-        sys.exit(1)
-
 
 # Definir rutas de entrada y salida
 data_dir = os.path.join('..', 'data', 'processed')
