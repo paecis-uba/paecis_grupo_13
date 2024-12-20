@@ -1,9 +1,5 @@
 google-api-python-client
 python-dotenv
-time
-re
-csv
-isodate
 pandas
 numpy
 matplotlib

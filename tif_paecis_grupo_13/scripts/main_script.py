@@ -1,14 +1,13 @@
- # Script para configurar entorno virtual
 import os
 import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from wordcloud import WordCloud
 
 
 # Definir rutas de entrada y salida
-data_dir = os.path.join('..', 'data', 'processed')
-input_file = os.path.join(data_dir, 'dfscore_final.csv')
+input_file = os.path.abspath(os.path.join('data', 'processed', 'dfscore_final.csv'))
 
 # Validar que el archivo de entrada exista
 if not os.path.exists(input_file):
@@ -32,26 +31,33 @@ def visualize_data(data):
     try:
         sns.set(style="whitegrid")
 
-        # Conteo de polaridades
-        plt.figure(figsize=(10, 6))
-        sns.countplot(x='polarity', data=data, palette='viridis')
-        plt.title("Distribución de polaridades de sentimiento")
-        plt.xlabel("Polaridad")
-        plt.ylabel("Frecuencia")
-        plt.show()
+        # Crear un objeto PDF para almacenar gráficos
+        from matplotlib.backends.backend_pdf import PdfPages
+        pdf_filename = 'visualizations.pdf'
+        with PdfPages(pdf_filename) as pdf:
 
-        # Nube de palabras (si existe una columna relevante)
-        if 'cleaned_text' in data.columns:
-            from wordcloud import WordCloud
-
-            text = " ".join(data['cleaned_text'].dropna())
-            wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-
+            # Conteo de polaridades
             plt.figure(figsize=(10, 6))
-            plt.imshow(wordcloud, interpolation='bilinear')
-            plt.axis("off")
-            plt.title("Nube de palabras de los comentarios")
-            plt.show()
+            sns.countplot(x='polarity', data=data, palette='viridis')
+            plt.title("Distribución de polaridades de sentimiento")
+            plt.xlabel("Polaridad")
+            plt.ylabel("Frecuencia")
+            pdf.savefig()  # Guardar la figura en el archivo PDF
+            plt.close()
+
+            # Nube de palabras (si existe una columna relevante)
+            if 'cleaned_text' in data.columns:
+                text = " ".join(data['cleaned_text'].dropna())
+                wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+
+                plt.figure(figsize=(10, 6))
+                plt.imshow(wordcloud, interpolation='bilinear')
+                plt.axis("off")
+                plt.title("Nube de palabras de los comentarios")
+                pdf.savefig()  # Guardar la figura en el archivo PDF
+                plt.close()
+
+        print(f"Los gráficos se han guardado en el archivo {pdf_filename}.")
 
     except Exception as e:
         print(f"Error durante la visualización de datos: {e}")
