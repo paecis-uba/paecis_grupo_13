@@ -7,7 +7,8 @@ venv/
 .venv
 scripts/venv/
 
-# Jupyter Notebook checkpoints
+# Jupyter Notebook checkpoints & vscode
+.vscode/
 .ipynb_checkpoints/
 
 # Logs and temporary files
