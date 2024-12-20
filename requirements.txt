@@ -11,3 +11,4 @@ deep_translator
 scikit-learn
 spacy
 scipy
+fpdf
