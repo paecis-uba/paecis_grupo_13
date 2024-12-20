@@ -36,15 +36,15 @@ if __name__ == "__main__":
     parser.add_argument(
         "--venv_dir",
         type=str,
-        default=os.path.join(os.getcwd(), "venv"),
-        help="Ruta donde se creará el entorno virtual (por defecto: ./venv)."
+        default=os.path.join(os.path.dirname(__file__), "../venv"),
+        help="Ruta donde se creará el entorno virtual (por defecto: ../venv en el directorio principal)."
     )
     parser.add_argument(
         "--requirements",
         type=str,
         default=os.path.join(os.path.dirname(__file__), "../requirements.txt"),
-        help="Ruta al archivo requirements.txt (por defecto: ../requirements.txt)."
+        help="Ruta al archivo requirements.txt (por defecto: ../requirements.txt en el directorio principal)."
     )
     args = parser.parse_args()
 
-    setup_environment(venv_dir=args.venv_dir, requirements_path=os.path.abspath(args.requirements))
+    setup_environment(venv_dir=os.path.abspath(args.venv_dir), requirements_path=os.path.abspath(args.requirements))
