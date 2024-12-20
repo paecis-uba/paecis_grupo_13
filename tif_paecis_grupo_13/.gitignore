@@ -1,2 +1,3 @@
 .venv
+/scripts/venv
 /create_files.py
