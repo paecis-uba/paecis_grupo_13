@@ -16,6 +16,7 @@ PAECIS_GRUPO_13/
 ├── scripts/                     # Scripts de Python (setup_env.py y main_script.py)
 ├── venv/                        # Entorno virtual (no incluido en el repositorio)
 ├── requirements.txt             # Lista de dependencias del proyecto
+├── data_dictionary.md           # Documentación que representa el diccionario de datos
 ├── README.md                    # Documentación del proyecto
 ├── .gitignore                   # Archivos y carpetas a ignorar
 ├── run.sh                       # Script de configuración y ejecución en Linux
